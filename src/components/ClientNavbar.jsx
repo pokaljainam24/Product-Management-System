@@ -25,6 +25,10 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
                             <a className="nav-link fs-5 active" href="/Client">Home</a>
                         </li>
 
+                        <li className="nav-item">
+                            <a className="nav-link fs-5 active" href="/">Admin</a>
+                        </li>
+
                         {/* Category Dropdown */}
                         <li className="nav-item dropdown">
                             <a

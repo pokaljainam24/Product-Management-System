@@ -1,6 +1,15 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Header() {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        navigate('/client');
+    }
     return (
         <nav className="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
             <div className="container-fluid">
@@ -252,7 +261,7 @@ function Header() {
                                     <div className="dropdown-divider" />
                                     <a className="dropdown-item" href="#">Account Setting</a>
                                     <div className="dropdown-divider" />
-                                    <a className="dropdown-item" href="#">Logout</a>
+                                    <button className="dropdown-item" onClick={handleLogout}>Logout</button>
                                 </li>
                             </div>
                         </ul>

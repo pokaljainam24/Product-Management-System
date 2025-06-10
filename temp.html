@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .progress-steps .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #6c757d;
+            position: relative;
+            flex: 1;
+        }
+
+        .progress-steps .step .icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e9ecef;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            z-index: 1;
+        }
+
+        .progress-steps .step.active .icon {
+            background-color: #343a40;
+            /* Darker for active step */
+            color: white;
+        }
+
+        .progress-steps .step.active {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        .progress-steps .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            right: -50%;
+            top: 20px;
+            height: 2px;
+            background-color: #e9ecef;
+            z-index: 0;
+        }
+
+        .progress-steps .step.active:not(:last-child)::after {
+            background-color: #343a40;
+            /* Line color for active path */
+        }
+
+        .product-item {
+            background-color: #fff;
+            border-radius: .25rem;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+        }
+
+        .product-item img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-right: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: .25rem;
+            padding: 5px;
+        }
+
+        .product-item .product-details {
+            flex-grow: 1;
+        }
+
+        .product-item .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .product-item .quantity-control .input-group-text {
+            cursor: pointer;
+            width: 30px;
+            justify-content: center;
+            padding: .375rem .75rem;
+            /* Adjust padding to match the input */
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            border: 1px solid #ced4da;
+            background-color: #e9ecef;
+        }
+
+        .product-item .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            border-color: #ced4da;
+        }
+
+        .product-item .quantity-control button {
+            border-radius: 0;
+        }
+
+        .product-item .total-price {
+            width: 100px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .order-summary {
+            background-color: #0d1a38;
+            /* Dark blue background */
+            color: #fff;
+            padding: 25px;
+            border-radius: .25rem;
+            height: 100%;
+            /* Ensure it takes full height of the column */
+        }
+
+        .order-summary h5 {
+            margin-bottom: 25px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .order-summary .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .order-summary .summary-item.total {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+        }
+
+        .order-summary .coupon-input-group .form-control {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 1px solid #ced4da;
+            /* Light border for contrast */
+        }
+
+        .order-summary .coupon-input-group .btn {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            background-color: #f7a300;
+            /* Orange button */
+            border-color: #f7a300;
+            color: white;
+        }
+
+        .order-summary .proceed-button {
+            background-color: #f7a300;
+            /* Orange button */
+            border-color: #f7a300;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            margin-top: 25px;
+        }
+
+        .help-links {
+            margin-top: 30px;
+        }
+
+        .help-links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .help-links a:hover {
+            text-decoration: underline;
+        }
+
+        .back-to-shopping {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .back-to-shopping a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .back-to-shopping a:hover {
+            text-decoration: underline;
+        }
+
+        .delete-icon {
+            color: #6c757d;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="progress-steps">
+            <div class="step active">
+                <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                <span>Cart</span>
+            </div>
+            <div class="step">
+                <div class="icon"><i class="fas fa-credit-card"></i></div>
+                <span>Checkout</span>
+            </div>
+            <div class="step">
+                <div class="icon"><i class="fas fa-box"></i></div>
+                <span>Order</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="d-flex justify-content-between mb-3">
+                    <h6 class="text-muted">Product</h6>
+                    <h6 class="text-muted me-5 pe-5">Total</h6>
+                </div>
+
+                <div class="product-item">
+                    <img src="https://via.placeholder.com/90x90?text=Humidifier"
+                        alt="LV600S Smart Hybrid Ultrasonic Humidifier">
+                    <div class="product-details">
+                        <h6 class="mb-1">LV600S Smart Hybrid Ultrasonic Humidifier</h6>
+                        <small class="text-muted">$370.00</small>
+                    </div>
+                    <div class="quantity-control input-group input-group-sm me-3" style="width: 120px;">
+                        <button class="btn btn-outline-secondary" type="button">-</button>
+                        <input type="text" class="form-control text-center" value="1" readonly>
+                        <button class="btn btn-outline-secondary" type="button">+</button>
+                    </div>
+                    <span class="delete-icon me-3"><i class="fas fa-trash-alt"></i></span>
+                    <div class="total-price">$370.00</div>
+                </div>
+
+                <div class="product-item">
+                    <img src="https://via.placeholder.com/90x90?text=Fan"
+                        alt="Dr. Heater DR-PS11024 10000W Portable Fan">
+                    <div class="product-details">
+                        <h6 class="mb-1">Dr. Heater DR-PS11024 10000W Portable Fan</h6>
+                        <small class="text-muted">$420.00</small>
+                    </div>
+                    <div class="quantity-control input-group input-group-sm me-3" style="width: 120px;">
+                        <button class="btn btn-outline-secondary" type="button">-</button>
+                        <input type="text" class="form-control text-center" value="1" readonly>
+                        <button class="btn btn-outline-secondary" type="button">+</button>
+                    </div>
+                    <span class="delete-icon me-3"><i class="fas fa-trash-alt"></i></span>
+                    <div class="total-price">$420.00</div>
+                </div>
+
+                <div class="product-item">
+                    <img src="https://via.placeholder.com/90x90?text=Generator" alt="Airthereal MA5000 Ozone Generator">
+                    <div class="product-details">
+                        <h6 class="mb-1">Airthereal MA5000 Ozone Generator</h6>
+                        <small class="text-muted">$290.00</small>
+                    </div>
+                    <div class="quantity-control input-group input-group-sm me-3" style="width: 120px;">
+                        <button class="btn btn-outline-secondary" type="button">-</button>
+                        <input type="text" class="form-control text-center" value="1" readonly>
+                        <button class="btn btn-outline-secondary" type="button">+</button>
+                    </div>
+                    <span class="delete-icon me-3"><i class="fas fa-trash-alt"></i></span>
+                    <div class="total-price">$290.00</div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center help-links mt-4">
+                    <div>
+                        <small class="text-muted">Need help? Check our <a href="#">help and support</a> or <a
+                                href="#">contact us</a></small>
+                    </div>
+                    <div class="back-to-shopping">
+                        <a href="#"><i class="fas fa-arrow-left"></i> Go back to shopping</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="order-summary">
+                    <h5>Order Summary</h5>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span>$1270.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>V.A.T</span>
+                        <span>$68.00</span>
+                    </div>
+                    <div class="summary-item mt-4">
+                        <span>Add a coupon</span>
+                        <button class="btn btn-sm btn-light rounded-circle"
+                            style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; padding: 0;">
+                            <i class="fas fa-minus" style="color: #6c757d;"></i>
+                        </button>
+                    </div>
+                    <div class="input-group mb-3 coupon-input-group">
+                        <input type="text" class="form-control" placeholder="Enter your code" aria-label="Coupon code">
+                        <button class="btn" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total</span>
+                        <span>$1338.00</span>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn proceed-button mt-4">Proceed to checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
