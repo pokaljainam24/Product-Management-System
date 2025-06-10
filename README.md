@@ -89,7 +89,7 @@ npm start
 ## 🙋‍♂️ Author
 
 **Jainam Pokal**:
-📫 Reach out: LinkedIn | GitHub
+- 📫 Reach out: LinkedIn | GitHub
 
 
 
