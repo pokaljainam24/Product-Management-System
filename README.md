@@ -75,6 +75,7 @@ npm start
 
 
 ## 🖼️ Screenshots
+![Admin Page](https://github.com/user-attachments/assets/d150a37d-ee5a-4742-97b7-cad98ebadc9d)
 
 
 
