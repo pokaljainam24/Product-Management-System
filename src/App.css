@@ -1,0 +1,52 @@
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+}
+
+.qty-control button {
+    width: 32px;
+    height: 32px;
+}
+
+.total-box {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.radio-check label {
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.remove-btn {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dropdown-menu .dropdown-item {
+    padding: 10px 20px;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 4px;
+}
