@@ -75,8 +75,13 @@ npm start
 
 
 ## 🖼️ Screenshots
-![Admin Page](https://github.com/user-attachments/assets/d150a37d-ee5a-4742-97b7-cad98ebadc9d)
-
+| Page | Screenshot |
+|:-----|:-----------|
+| **Home Page** | ![image](https://github.com/user-attachments/assets/acceb314-8537-4e09-b9ab-ba916f4aab18) |
+| **Add To Cart Page** | ![image](https://github.com/user-attachments/assets/d044010f-0db5-463b-9ee4-c7defc6e0c39) |
+| **Cart Page** | ![image](https://github.com/user-attachments/assets/fea29425-f2da-436d-860e-cd1e12c00f64) |
+| **Creat Task Form Page** | ![image](https://github.com/user-attachments/assets/64838344-cc01-4eab-be25-804d29560dc8) |
+| **View Task Page** | ![image](https://github.com/user-attachments/assets/a55bb906-daab-46b5-9d65-4e6247ac3899) |
 
 
 ## ✅ TODO / Future Enhancements
