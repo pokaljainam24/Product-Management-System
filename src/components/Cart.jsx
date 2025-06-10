@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ClientNavbar from './ClientNavbar';
+import ClientFooter from './ClientFooter';
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
@@ -151,6 +152,9 @@ function Cart() {
                     </div>
                 </div>
             </div>
+            
+            {/* Footer */}
+            <ClientFooter />
         </>
     );
 }
