@@ -1,6 +1,6 @@
 // components/Footer.js
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope, FaMapMarkerAlt, FaPhone, FaGithub } from 'react-icons/fa';
 
 function ClientFooter() {
     return (
@@ -14,13 +14,25 @@ function ClientFooter() {
                             <span className="fs-3 fw-bold text-primary">🦋</span>
                         </div>
                         <p>The proper Footer on proper time can preserve you protection. We assist you make sure everybody forward.</p>
-                        <div className="d-flex gap-3 mt-3">
-                            <FaFacebookF />
-                            <FaTwitter />
-                            <FaInstagram />
-                            <FaEnvelope />
+                        <div className="d-flex gap-3 mt-3 fs-3">
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                                <FaFacebookF />
+                            </a>
+                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                                <FaTwitter />
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                                <FaInstagram />
+                            </a>
+                            <a href="mailto:example@example.com" target="_blank" rel="noopener noreferrer" className="text-light">
+                                <FaEnvelope />
+                            </a>
+                            <a href="https://github.com/pokaljainam24" target="_blank" rel="noopener noreferrer" className="text-light">
+                                <FaGithub />
+                            </a>
                         </div>
                     </div>
+
 
                     {/* Quick Link */}
                     <div className="col-md-3 mb-4">
@@ -39,11 +51,11 @@ function ClientFooter() {
                         <ul className="list-unstyled mt-3">
                             <li className="mb-2">
                                 <a href="#" className="text-light text-decoration-none">› Anything You Want To Know Is Here</a>
-                                <div className="small text-muted">April 14, 2024</div>
+                                <div className="small text-light">› April 14, 2024</div>
                             </li>
                             <li>
                                 <a href="#" className="text-light text-decoration-none">› Anything You Want To Know Is Here</a>
-                                <div className="small text-muted">April 14, 2024</div>
+                                <div className="small text-light">› April 14, 2024</div>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +71,7 @@ function ClientFooter() {
                     </div>
                 </div>
 
-                <div className="text-center mt-4 text-muted">
+                <div className="text-center mt-4 text-info">
                     © 2024 All rights reserved
                 </div>
             </div>

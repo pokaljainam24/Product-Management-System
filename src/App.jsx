@@ -21,7 +21,7 @@ function App() {
   const imageRef = useRef();
   const navigate = useNavigate();
 
-  const URL = 'http://localhost:3000/products';
+  const URL = 'http://localhost:5001/products';
 
   useEffect(() => {
     axios

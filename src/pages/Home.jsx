@@ -47,7 +47,7 @@ function Home({ productData }) {
         setFilteredData(data);
     }, [search, selectedCategory, selectedBrand, selectedRating, selectedPrices, productData]);
 
-    const togglePrice = price => {
+    const togglePrice = (price) => {
         setSelectedPrices(prev =>
             prev.includes(price) ? prev.filter(p => p !== price) : [...prev, price]
         );
