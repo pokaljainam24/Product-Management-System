@@ -56,7 +56,7 @@ function Cart() {
             />
             <div className="container py-5 mt-5">
                 <nav className="mb-4">
-                    <a href="/" className="text-decoration-none text-light">Home</a> /
+                    <a href="/" className="text-decoration-none text-dark">Home</a> /
                     <span className="text-primary">Your Basket</span>
                 </nav>
 
