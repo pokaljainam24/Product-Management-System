@@ -13,7 +13,7 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top p-3">
             <div className="container">
-                <a className="navbar-brand fw-bold fs-4" href="/Client">🛒 ShopEase</a>
+                <a className="navbar-brand fw-bold fs-4" href="/">🛒 ShopEase</a>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                     <span className="navbar-toggler-icon" />
@@ -22,11 +22,11 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
                 <div className="collapse navbar-collapse" id="navbarContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link fs-5 active" href="/Client">Home</a>
+                            <a className="nav-link fs-5 active" href="/">Home</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link fs-5 active" href="/">Admin</a>
+                            <a className="nav-link fs-5 active" href="/login">Admin</a>
                         </li>
 
                         {/* Category Dropdown */}
@@ -73,7 +73,7 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
                                 {brands.map((brand, index) => (
                                     <li key={index}>
                                         <a
-                                            className="dropdown-item"
+                                            className="dropdown-item fs-6 fw-bold"
                                             href="#"
                                             onClick={(e) => {
                                                 e.preventDefault();

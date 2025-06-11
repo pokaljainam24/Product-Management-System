@@ -4,7 +4,7 @@ import Header from '../components/Header';
 
 function App() {
     return (
-        <div className="wrapper">
+        <div className="wrapper bg-light text-dark">
             {/* Sidebar */}
             <Aside />
             {/* End Sidebar */}
@@ -34,7 +34,7 @@ function App() {
                     <Header />
                     {/* End Navbar */}
                 </div>
-                <div className="container">
+                <div className="container bg-light">
                     <div className="page-inner">
                         <div className="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
                             <div>

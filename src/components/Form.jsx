@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 const Form = ({ handleSubmit, handleChange, product, options, imageRef, error }) => {
     return (
-        <div className="wrapper">
+        <div className="wrapper bg-light text-dark">
             <Aside />
             <div className="main-panel">
                 <div className="main-header">
@@ -32,7 +32,7 @@ const Form = ({ handleSubmit, handleChange, product, options, imageRef, error })
                     <Header />
                     {/* End Navbar */}
                 </div>
-                <div className="container">
+                <div className="container bg-light">
                     <div className="page-inner">
                         <h3 className="fw-bold mb-3">Product Form</h3>
                         <form method="post" onSubmit={handleSubmit}>

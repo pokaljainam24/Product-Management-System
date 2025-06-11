@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope, FaMapMarkerAlt, FaPhon
 
 function ClientFooter() {
     return (
-        <footer className="bg-dark text-light pt-5 pb-3 mt-5">
+        <footer className="bg-dark text-light pt-5 pb-3 mt-5 footer">
             <div className="container">
                 <div className="row">
 
@@ -71,9 +71,9 @@ function ClientFooter() {
                     </div>
                 </div>
 
-                <div className="text-center mt-4 text-info">
-                    © 2024 All rights reserved
-                </div>
+            </div>
+            <div className="text-center mt-4 text-info">
+                © 2024 All rights reserved
             </div>
         </footer>
     );

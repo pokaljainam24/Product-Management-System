@@ -10,6 +10,7 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Product from './components/Product';
 import Cart from './components/Cart';
+import LoginForm from './components/LoginForm';
 
 function App() {
   const [product, setProduct] = useState({});
@@ -127,13 +128,15 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/client' element={<Home productData={productData} />} />
+        <Route path='/' element={<Home productData={productData} />} />
 
         <Route path='/product' element={<Product product={product} productData={productData} />} />
 
         <Route path='/cart' element={<Cart />} />
 
-        <Route path='/' element={<AdminPanel />} />
+        <Route path='/admin' element={<AdminPanel />} />
+
+        <Route path='/login' element={<LoginForm />} />
 
 
         <Route path='/form' element={

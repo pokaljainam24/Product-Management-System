@@ -56,7 +56,7 @@ function Cart() {
             />
             <div className="container py-5 mt-5">
                 <nav className="mb-4">
-                    <a href="/Client" className="text-decoration-none text-muted">Home</a> /
+                    <a href="/" className="text-decoration-none text-light">Home</a> /
                     <span className="text-primary">Your Basket</span>
                 </nav>
 
@@ -131,16 +131,16 @@ function Cart() {
                                     Click & Collect
                                 </label>
                             </div>
-                            <div className="d-flex justify-content-between mb-2">
+                            <div className="d-flex text-danger  justify-content-between mb-2">
                                 <span>Subtotal:</span>
                                 <strong>₹{subtotal.toFixed(2)}</strong>
                             </div>
-                            <div className="d-flex justify-content-between mb-2">
+                            <div className="d-flex  text-danger justify-content-between mb-2">
                                 <span>Delivery:</span>
                                 <strong>₹{delivery.toFixed(2)}</strong>
                             </div>
                             <hr />
-                            <div className="d-flex justify-content-between mb-4">
+                            <div className="d-flex text-danger justify-content-between mb-4">
                                 <span>Total:</span>
                                 <h5 className="text-success">₹{total.toFixed(2)}</h5>
                             </div>

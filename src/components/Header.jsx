@@ -8,7 +8,7 @@ function Header() {
     const handleLogout = () => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
-        navigate('/client');
+        navigate('/');
     }
     return (
         <nav className="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">

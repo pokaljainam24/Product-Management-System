@@ -74,7 +74,7 @@ function Home({ productData }) {
 
     return (
         <>
-            <div className="container mt-4">
+            <div className="container mt-5">
                 {/* Sidebar */}
                 <ClientNavbar
                     categories={uniqueCategories}
