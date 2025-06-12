@@ -11,7 +11,7 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
     }, []);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top p-3">
+        <nav className="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top p-3" style={{ backgroundColor: '#2c3e50'}}>
             <div className="container">
                 <a className="navbar-brand fw-bold fs-4" href="/">🛒 ShopEase</a>
 
@@ -22,17 +22,17 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
                 <div className="collapse navbar-collapse" id="navbarContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link fs-5 active" href="/">Home</a>
+                            <a className="nav-link text-white fs-5 active" href="/">Home</a>
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link fs-5 active" href="/login">Admin</a>
+                            <a className="nav-link text-white fs-5 active" href="/login">Admin</a>
                         </li>
 
                         {/* Category Dropdown */}
                         <li className="nav-item dropdown">
                             <a
-                                className="nav-link dropdown-toggle fs-5"
+                                className="nav-link dropdown-toggle fs-5 text-white"
                                 href="#"
                                 id="categoryDropdown"
                                 role="button"
@@ -61,7 +61,7 @@ function ClientNavbar({ categories = [], brands = [], onCategorySelect, onBrandS
                         {/* Brand Dropdown */}
                         <li className="nav-item dropdown">
                             <a
-                                className="nav-link dropdown-toggle fs-5"
+                                className="nav-link dropdown-toggle fs-5 text-white"
                                 href="#"
                                 id="brandDropdown"
                                 role="button"

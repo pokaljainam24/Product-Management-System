@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Product from './components/Product';
 import Cart from './components/Cart';
 import LoginForm from './components/LoginForm';
+import ReviewCard from './components/ReviewCard';
 
 function App() {
   const [product, setProduct] = useState({});
@@ -138,6 +139,7 @@ function App() {
 
         <Route path='/login' element={<LoginForm />} />
 
+        <Route path='/review' element={<ReviewCard />} />
 
         <Route path='/form' element={
           <Form

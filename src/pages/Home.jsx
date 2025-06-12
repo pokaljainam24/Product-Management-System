@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ClientNavbar from '../components/ClientNavbar';
 import ClientFooter from '../components/ClientFooter';
+import ReviewCard from './../components/ReviewCard';
 
 function Home({ productData }) {
     const [filteredData, setFilteredData] = useState([]);
@@ -74,7 +75,7 @@ function Home({ productData }) {
 
     return (
         <>
-            <div className="container mt-5">
+            <div className="container-fluid mt-5">
                 {/* Sidebar */}
                 <ClientNavbar
                     categories={uniqueCategories}
@@ -84,7 +85,7 @@ function Home({ productData }) {
                 />
                 {/* navbar */}
                 <div className="row" style={{ marginTop: '80px' }}>
-                    <div className="col-md-3">
+                    <div className="col-md-3" style={{ width: '300px' }}>
                         {/* search and filters (same as before) */}
                         {/* ... your existing sidebar code unchanged ... */}
                         <input
@@ -226,49 +227,58 @@ function Home({ productData }) {
                     </div>
 
                     {/* Products */}
-                    <div className="col-md-9">
+                    <div className="col-md-9 mx-3">
                         <h3 className="mb-4">🛍️ Explore Our Collection</h3>
                         <div className="row">
                             {filteredData.length > 0 ? (
                                 filteredData.map((item, i) => (
-                                    <div key={i} className="col-md-4 mb-4">
+                                    <div key={i} className="col-md-3 mb-4">
                                         <div
-                                            className="card h-100 border-0 shadow-sm rounded-4 hover-card"
+                                            className="product-card h-100 border-0 shadow-sm rounded-4 hover-card"
                                             onClick={() => handleCardClick(item)}
                                             style={{ cursor: 'pointer', transition: 'transform 0.3s', overflow: 'hidden' }}
-                                            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-                                            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1.0)'}
+                                            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.02)')}
+                                            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1.0)')}
                                         >
-                                            <img
-                                                src={item.image?.url}
-                                                className="card-img-top rounded-top-4"
-                                                alt={item.pName}
-                                                style={{ height: '250px', objectFit: 'contain', padding: '10px' }}
-                                            />
-                                            <div className="card-body d-flex flex-column">
-                                                <h5 className="card-title fw-semibold text-truncate" title={item.pName}>
-                                                    {item.pName}
-                                                </h5>
-                                                <p className="card-text text-success fw-bold fs-5 mt-2">₹{item.price}</p>
-                                                <div className="mt-2 mb-3">
-                                                    {[...Array(5)].map((_, index) => (
-                                                        <i
-                                                            key={index}
-                                                            className={`fa fa-star${index < Math.round(item.rating) ? '' : '-o'}`}
-                                                            style={{ color: '#f1c40f', marginRight: '2px' }}
-                                                        />
-                                                    ))}
-                                                </div>
-                                                <button
-                                                    className="btn btn-primary mt-auto w-100"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        handleAddToCart(item);
-                                                    }}
-                                                >
-                                                    🛒 Add to Cart
-                                                </button>
+                                            <div className="d-flex justify-content-center align-items-center" style={{ height: '250px', padding: '10px' }}>
+                                                <img
+                                                    src={item.image?.url}
+                                                    alt={item.pName}
+                                                    style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+                                                />
                                             </div>
+                                            <p className="sponsored mt-2 mb-1">Sponsored</p>
+                                            <div className="product-title text-truncate" title={item.pName}>
+                                                {item.pName}
+                                            </div>
+                                            <div className="product-subtitle mb-1">
+                                                {item.color || 'Color Variant'} Strap, {item.size || 'Regular'}{' '}
+                                            </div>
+                                            <div className="d-flex align-items-center gap-2 mb-1">
+                                                <span className="rating-badge">{item.rating} ★</span>
+                                                <span className="text-muted-small">({item.reviewCount || "1,000+"})</span>
+                                            </div>
+                                            <div className="d-flex align-items-center gap-2 mb-1">
+                                                <div className="fs-5 fw-bold">₹{item.price}</div>
+                                                <div className="strike-price text-muted text-decoration-line-through">
+                                                    ₹{item.originalPrice || item.price + 1000}
+                                                </div>
+                                                <div className="discount text-success">
+                                                    {item.discount || "50% off"}
+                                                </div>
+                                            </div>
+                                            <div className="exchange-offer">
+                                                Upto <strong>₹300</strong> Off on Exchange
+                                            </div>
+                                            <button
+                                                className="btn btn-primary mt-3 w-100"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleAddToCart(item);
+                                                }}
+                                            >
+                                                🛒 Add to Cart
+                                            </button>
                                         </div>
                                     </div>
                                 ))
@@ -277,6 +287,10 @@ function Home({ productData }) {
                             )}
                         </div>
                     </div>
+
+                    {/* Review */}
+                    <ReviewCard />
+
                 </div>
             </div>
             {/* Footer */}

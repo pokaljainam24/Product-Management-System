@@ -12,7 +12,7 @@ function Header() {
     }
     return (
         <nav className="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
-            <div className="container-fluid">
+            <div className="container">
                 <nav className="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
                     <div className="input-group">
                         <div className="input-group-prepend">

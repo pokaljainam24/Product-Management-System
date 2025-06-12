@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope, FaMapMarkerAlt, FaPhon
 
 function ClientFooter() {
     return (
-        <footer className="bg-dark text-light pt-5 pb-3 mt-5 footer">
+        <footer className=" text-light pt-5 pb-3 mt-5 footer" style={{ backgroundColor: '#2c3e50'}}>
             <div className="container">
                 <div className="row">
 

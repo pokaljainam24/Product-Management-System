@@ -8,12 +8,24 @@ function Product() {
     const product = location.state?.product;
     const [categories, setCategories] = useState([]);
     const [brands, setBrands] = useState([]);
+    const [selectedImage, setSelectedImage] = useState('');
+
+    const product1 = {
+        images: [
+            { url: 'https://rukminim2.flixcart.com/image/612/612/kigbjbk0-0/headphone/p/p/i/mgyh3hn-a-apple-original-imafy8wbdnh4kbkd.jpeg?q=70' },
+            { url: 'https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/k/e/v/-original-imah4axk5pwgfq73.jpeg?q=70' },
+            { url: 'https://rukminim2.flixcart.com/image/612/612/xif0q/headphone/g/k/j/-original-imah8xhzkhgh7frt.jpeg?q=70' }
+        ]
+    }
 
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
         setCategories([...new Set(cart.map(p => p.category))]);
         setBrands([...new Set(cart.map(p => p.brand))]);
-    }, []);
+        if (product?.image?.url) {
+            setSelectedImage(product.image.url);
+        }
+    }, [product]);
 
     if (!product) return <p className="text-center mt-5">No product selected.</p>;
 
@@ -23,7 +35,6 @@ function Product() {
     return (
         <>
             <div className="container mt-5">
-                {/* Sidebar */}
                 <ClientNavbar
                     categories={categories}
                     brands={brands}
@@ -36,14 +47,22 @@ function Product() {
                         <div className="d-flex">
                             <div className="me-2">
                                 <div className="d-flex flex-column gap-2">
-                                    <img src={product.image?.url} className="img-thumbnail" width={60} />
-                                    <img src={product.image?.url} className="img-thumbnail" width={60} />
-                                    <img src={product.image?.url} className="img-thumbnail" width={60} />
+                                    {product1.images.map((img, i) => (
+                                        <img
+                                            key={i}
+                                            src={img.url}
+                                            className="img-thumbnail"
+                                            width={60}
+                                            style={{ cursor: 'pointer' }}
+                                            onClick={() => setSelectedImage(img.url)}
+                                        />
+                                    ))}
+
                                 </div>
                             </div>
                             <div>
                                 <img
-                                    src={product.image?.url}
+                                    src={selectedImage}
                                     className="img-fluid rounded border"
                                     style={{ maxHeight: 400, objectFit: 'contain' }}
                                 />
@@ -66,8 +85,6 @@ function Product() {
                             <span className="text-muted">Based on reviews</span>
                         </div>
                         <hr />
-
-                        {/* Offers */}
                         <h6 className="fw-bold">Available offers</h6>
                         <ul className="list-unstyled">
                             <li><i className="fa fa-tag text-success me-2" />Bank Offer: 5% Cashback</li>
@@ -77,7 +94,6 @@ function Product() {
                         </ul>
                         <hr />
 
-                        {/* Delivery */}
                         <div className="mb-3">
                             <label className="form-label fw-semibold">Enter delivery pincode</label>
                             <div className="input-group w-50">
@@ -87,10 +103,8 @@ function Product() {
                             <small className="text-muted">Delivery by 12 Jun | ₹40</small>
                         </div>
 
-                        {/* Services */}
                         <p><i className="fa fa-rupee-sign me-2" />Cash on Delivery available</p>
 
-                        {/* Actions */}
                         <div className="d-flex gap-3 mt-4">
                             <button className="btn btn-warning w-25 fw-semibold">
                                 <i className="fas fa-shopping-cart me-2" />Add to Cart
@@ -103,7 +117,6 @@ function Product() {
                 </div>
             </div>
 
-            {/* Footer */}
             <ClientFooter />
         </>
     );
