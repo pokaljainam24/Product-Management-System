@@ -80,7 +80,7 @@ const products = [
 
 function ReviewCaed() {
     return (
-        <div className="container-fluid">
+        <div className="container" style={{marginLeft: 300}}>
             <div className=" py-4">
                 <h4 className="mb-4">Reviews for Popular Headphones</h4>
                 {products.map((product) => (
@@ -101,7 +101,7 @@ function ReviewCaed() {
                                     <p className="small text-muted">{product.helpfulReview.desc}</p>
                                     <p className="text-muted small">— {product.helpfulReview.user}, {product.helpfulReview.time}</p>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-12">
                                     <h6 className="text-success">Recent Review</h6>
                                     <p className="mb-1 fw-bold">{product.recentReview.rating}★ {product.recentReview.title}</p>
                                     <p className="small text-muted">{product.recentReview.desc}</p>

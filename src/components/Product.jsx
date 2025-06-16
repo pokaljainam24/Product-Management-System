@@ -63,8 +63,9 @@ function Product() {
                             <div>
                                 <img
                                     src={selectedImage}
-                                    className="img-fluid rounded border"
-                                    style={{ maxHeight: 400, objectFit: 'contain' }}
+                                    className="img-fluid rounded border p-2 mx-2"
+                                    style={{ maxHeight: 450, objectFit: 'cover' }}
+                                    alt="Selected"
                                 />
                             </div>
                         </div>
