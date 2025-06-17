@@ -80,11 +80,11 @@ const products = [
 
 function ReviewCaed() {
     return (
-        <div className="container" style={{marginLeft: 300}}>
+        <div className="container w-75" style={{marginLeft: 300}}>
             <div className=" py-4">
                 <h4 className="mb-4">Reviews for Popular Headphones</h4>
                 {products.map((product) => (
-                    <div key={product.id} className="row mb-5 border-bottom pb-4">
+                    <div key={product.id} className="row mb-5 border-bottom container pb-4">
                         <div className="col-md-2 text-center">
                             <img src={product.img} alt={product.title} className="img-fluid" />
                         </div>
