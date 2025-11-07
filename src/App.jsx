@@ -26,10 +26,15 @@ function App() {
   const URL = 'http://localhost:5001/products';
 
   useEffect(() => {
-    axios
-      .get(URL)
-      .then((res) => setProductData(res.data))
-      .catch((err) => console.error("Fetch error:", err));
+    const fetchproducts = async () => {
+      try {
+        const { data } = await axios.get(URL);
+        setProductData(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchproducts();
   }, []);
 
   const handleChange = (e) => {
